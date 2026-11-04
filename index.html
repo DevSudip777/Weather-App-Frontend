@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Weather Forecast</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="container">
+      <!-- Header -->
+      <header class="header">
+        <a href="#" class="logo">
+          <i class="fa-solid fa-cloud-sun"></i>
+          <span>SkyCast</span>
+        </a>
+
+        <span class="header-label">
+          <i class="fa-solid fa-location-dot"></i>
+          Weather Dashboard
+        </span>
+      </header>
+
+      <!-- Search Section -->
+      <section class="search-section">
+        <h1>Discover the Weather</h1>
+
+        <p>Get real-time weather updates for any city.</p>
+
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <input
+            type="text"
+            id="cityInput"
+            placeholder="Search for a city..."
+            autocomplete="off"
+          />
+
+          <button id="searchBtn">Search</button>
+        </div>
+      </section>
+
+      <!-- Loading -->
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Fetching weather data...</p>
+      </div>
+
+      <!-- Error -->
+      <div id="error" class="error hidden"></div>
+
+      <!-- Weather Content -->
+      <section id="weatherContent" class="weather-content hidden">
+        <!-- Current Weather -->
+        <div class="current-card">
+          <div class="current-top">
+            <div>
+              <span class="small-label">CURRENT WEATHER</span>
+
+              <h2 id="cityName">Kolkata</h2>
+
+              <p id="currentDate">Today</p>
+            </div>
+
+            <div class="weather-icon">
+              <img id="currentIcon" src="" alt="Weather icon" />
+            </div>
+          </div>
+
+          <div class="temperature-section">
+            <h1 id="temperature">--°</h1>
+
+            <div>
+              <h3 id="weatherDescription">Loading...</h3>
+              <p id="feelsLike">Feels like --°C</p>
+            </div>
+          </div>
+
+          <div class="current-divider"></div>
+
+          <div class="weather-details">
+            <div class="detail-item">
+              <i class="fa-solid fa-droplet"></i>
+
+              <div>
+                <span>Humidity</span>
+                <h3 id="humidity">--%</h3>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i class="fa-solid fa-wind"></i>
+
+              <div>
+                <span>Wind Speed</span>
+                <h3 id="windSpeed">-- m/s</h3>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i class="fa-solid fa-temperature-half"></i>
+
+              <div>
+                <span>Min / Max</span>
+                <h3 id="minMax">-- / --°C</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Forecast -->
+        <section class="forecast-section">
+          <div class="section-heading">
+            <div>
+              <span class="small-label">WEATHER OUTLOOK</span>
+              <h2>Next 5-Day Forecast</h2>
+            </div>
+
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+
+          <div id="forecast" class="forecast-grid"></div>
+        </section>
+      </section>
+
+      <!-- Initial Message -->
+      <section id="welcome" class="welcome">
+        <div class="welcome-icon">
+          <i class="fa-solid fa-cloud-sun"></i>
+        </div>
+
+        <h2>What's the weather like?</h2>
+
+        <p>Search for your favourite city to explore its weather forecast.</p>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <p>
+          @2026 Powered by OpenWeatherMap · Made by DevSudip
+          <i class="fa-solid fa-heart"></i>
+        </p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
