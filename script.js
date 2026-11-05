@@ -127,8 +127,28 @@ function formatTemp(temp) {
 // WEATHER ICON
 // =====================================
 
-function getWeatherIcon(icon) {
-  return `https://openweathermap.org/img/wn/${encodeURIComponent(icon)}@2x.png`;
+function getWeatherIcon(weather) {
+  const isDay = weather.icon?.endsWith("d");
+
+  const icons = {
+    Thunderstorm: "fa-cloud-bolt",
+    Drizzle: "fa-cloud-rain",
+    Rain: "fa-cloud-showers-heavy",
+    Snow: "fa-snowflake",
+    Mist: "fa-smog",
+    Smoke: "fa-smog",
+    Haze: "fa-smog",
+    Dust: "fa-sun",
+    Fog: "fa-smog",
+    Sand: "fa-wind",
+    Ash: "fa-smog",
+    Squall: "fa-wind",
+    Tornado: "fa-tornado",
+    Clear: isDay ? "fa-sun" : "fa-moon",
+    Clouds: isDay ? "fa-cloud-sun" : "fa-cloud-moon",
+  };
+
+  return icons[weather.main] || "fa-cloud";
 }
 
 // =====================================
@@ -148,7 +168,10 @@ function displayCurrent(current, city) {
       year: "numeric",
     });
 
-  document.getElementById("currentIcon").src = getWeatherIcon(weather.icon);
+  const currentIcon = document.getElementById("currentIcon");
+
+  currentIcon.className = `fa-solid ${getWeatherIcon(weather)}`;
+  currentIcon.setAttribute("aria-label", weather.description);
 
   document.getElementById("temperature").textContent = formatTemp(
     current.main.temp,
@@ -223,9 +246,9 @@ function displayForecast(list) {
 
     card.className = "forecast-card";
 
-    const icon = document.createElement("img");
-    icon.src = getWeatherIcon(weather.icon);
-    icon.alt = weather.description;
+    const icon = document.createElement("i");
+    icon.className = `fa-solid ${getWeatherIcon(weather)}`;
+    icon.setAttribute("aria-label", weather.description);
 
     const day = document.createElement("h4");
     day.textContent = formattedDate;

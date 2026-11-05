@@ -215,10 +215,36 @@ body {
     margin-top: 8px;
 }
 
-.weather-icon img {
+/* .weather-icon img {
     width: 110px;
     height: 110px;
     object-fit: contain;
+} */
+ /* Current weather icon */
+
+ /* --------------Current weather icon------------------- */
+
+#currentIcon {
+    font-size: 90px;
+    color: #60c5ff;
+    margin: 20px 0;
+
+    filter: drop-shadow(
+        0 5px 15px rgba(96, 197, 255, 0.35)
+    );
+
+    transition: transform 0.3s ease;
+}
+
+#currentIcon:hover {
+    transform: scale(1.12);
+}
+
+/* Forecast weather icons */
+.forecast-card i {
+    font-size: 38px;
+    color: #60c5ff;
+    margin: 12px 0;
 }
 
 .temperature-section {
