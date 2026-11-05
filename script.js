@@ -2,7 +2,7 @@
 // API CONFIGURATION
 // =====================================
 
-const BASE_URL = "http://localhost:8080/api/weather";
+const BASE_URL = "https://weather-app-backend-1-aown.onrender.com/api/weather";
 
 const cityInput = document.getElementById("cityInput");
 const searchBtn = document.getElementById("searchBtn");
